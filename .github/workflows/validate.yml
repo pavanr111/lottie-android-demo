@@ -53,6 +53,8 @@ jobs:
         run: ./gradlew build
       - name: Assemble Release bundle
         run: ./gradlew bundleRelease
+      - name: list files
+        run: ls -lrt app/build/outputs/bundle/release
       - name: Sign Release
         uses: r0adkll/sign-android-release@v1
         with:
