@@ -3,7 +3,7 @@ name: Outgrow-Android CI/CD Pipeline
 on: 
   
   push:
-    branches: [ "qa","Dev","staging","main" ]
+    branches: [ "qa","Dev","staging","master" ]
 
 jobs:
   clean-code:
