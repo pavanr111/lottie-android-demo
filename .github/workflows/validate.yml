@@ -52,13 +52,13 @@ jobs:
       - name: Build
         run: ./gradlew build
       - name: Assemble Release bundle
-        run: ./gradlew bundleRelease
+        run: ./gradlew assembleRelease
       - name: list files
-        run: ls -lrt app/build/outputs/bundle/release
+        run: ls -lrt app/build/outputs/apk/release
       - name: Sign Release
         uses: r0adkll/sign-android-release@v1
         with:
-          releaseDirectory: app/build/outputs/bundle/release
+          releaseDirectory: app/build/outputs/apk/release
           keystore_b64: ${{ secrets.SIGNING_KEY }}
           key_alias: ${{ secrets.ALIAS }}
           keystore_password: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -67,4 +67,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
          name: app
-         path: app/build/outputs/bundle/release
+         path: app/build/outputs/apk/release
